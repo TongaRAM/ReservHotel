@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setTitle("Login");
+        getContentPane().setBackground(new Color(0, 112, 204));
     }
 
     /**
