@@ -14,13 +14,18 @@ import javax.swing.table.DefaultTableModel;
  * @author usuario
  */
 public class PnlCliente extends javax.swing.JPanel {
+    //  Modelo de tabla utilizado para manejar los datos de los clientes mostrados en la tabla de la interfaz gráfica.
     DefaultTableModel dtmCliente;
+    // Índice del cliente seleccionado en la tabla, utilizado para operaciones como actualizar o eliminar clientes.
     int indiceClienteSeleccionado;
 
     /**
      * Creates new form PnlCliente
      */
+    // Inicializa los componentes de la interfaz gráfica, establece el modelo de la tabla para los clientes y oculta los mensajes de error iniciales. 
+    // También llena la tabla con una lista completa de clientes, si la hay.
     public PnlCliente() {
+       // Estos métodos son autogenerados por el IDE o definidos para manejar eventos de la interfaz gráfica, como acciones sobre botones o cambios en campos de texto.
         initComponents();
         Cliente c;
         dtmCliente = new DefaultTableModel();
@@ -424,18 +429,20 @@ public class PnlCliente extends javax.swing.JPanel {
         }
         
     }
+        // Agrega todos los clientes disponibles en la lista de clientes a la tabla de la interfaz gráfica.
         private void agregarListaCompletaALaTabla() {
         for (Cliente c :PaginaPrincipal.listaDeClientes) {
             agregarClienteALaTabla(c);
         }
     }                                                  
-
+    // Limpia la tabla de clientes, eliminando todas las filas existentes.
     private void limpiarTablaDeClientes(){
         for(int i=0; i<tblCliente.getRowCount(); i++){
             dtmCliente.removeRow(i);
             i -= 1;  
         }
     }
+    // Añade un cliente específico a la tabla de clientes.
      private void agregarClienteALaTabla(Cliente c) {
         dtmCliente.addRow(new Object[]{c.getNombre(), c.getApellido(),
             c.getNumeroCedula(), c.getTelefono()});
@@ -455,6 +462,7 @@ public class PnlCliente extends javax.swing.JPanel {
         txtNumeroTelefono.setText(clienteSeleccionado.getTelefono());
     }//GEN-LAST:event_tblClienteMouseClicked
 
+    // Se utilizan para validar la entrada del usuario en tiempo real y manejar la selección de filas en la tabla de clientes, respectivamente.
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
         if(Validador.esNombreValido(txtNombre.getText())){
