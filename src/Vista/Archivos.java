@@ -8,6 +8,7 @@ package Vista;
  *
  * @author HP
  */
+// La clase Archivos sirve como punto de entrada para la aplicación.
 public class Archivos {
 
     /**
@@ -15,8 +16,8 @@ public class Archivos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        PnlServicios2 ven = new PnlServicios2();
-        ven.setVisible(true);
+        PnlServicios2 ven = new PnlServicios2(); // Crea una instancia de la clase PnlServicios2, presumiblemente una ventana o panel de servicios.
+        ven.setVisible(true); // Hace visible la instancia de la ventana o panel de servicios al usuario.
     }
     
 }
