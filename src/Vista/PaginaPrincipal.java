@@ -19,27 +19,29 @@ import javax.swing.JPanel;
  * @author usuario
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
-    PnlCliente pnlCliente;
-    PnlServicios2 pnlServicios2;
-    PnlPrincipal pnlPrincipal;    
-    PnlFactura_1 pnlFactura_1;
-    PnlServicios2 pnlServicios;
-    public static ArrayList<Habitacion> listaDeHabitaciones;
-    public static ArrayList<Cliente> listaDeClientes;
+    PnlCliente pnlCliente; // Panel de usuario para la gestión de clientes en la interfaz gráfica.
+    PnlServicios2 pnlServicios2; // Panel de usuario para la gestión de servicios en la interfaz gráfica.
+    PnlPrincipal pnlPrincipal; // Panel principal que se muestra en la interfaz gráfica al inicio.
+    PnlFactura_1 pnlFactura_1; // Panel de usuario para la generación de facturas en la interfaz gráfica.
+    PnlServicios2 pnlServicios; // Panel de usuario duplicado para la gestión de servicios, posiblemente un error de duplicación.
+    public static ArrayList<Habitacion> listaDeHabitaciones; // Lista estática que almacena las habitaciones disponibles en el hotel.
+    public static ArrayList<Cliente> listaDeClientes; // Lista estática que almacena los clientes registrados en el hotel.
+
     /**
      * Creates new form PaginaPrincipal
      */
 
     public PaginaPrincipal() {
-        initComponents();
-        setLocationRelativeTo(this);
-        pnlPrincipal=new PnlPrincipal();
-        agregarPanel(pnlPrincipal);
-        fecha();
-      
+       initComponents();
+        setLocationRelativeTo(this); // Configura la ubicación de la ventana respecto a su posición actual.
+        pnlPrincipal=new PnlPrincipal(); // Inicializa el panel principal.
+        agregarPanel(pnlPrincipal); // Agrega el panel principal a la interfaz gráfica.
+        fecha(); // Actualiza la fecha actual en la interfaz gráfica.
+
+        // Inicialización de las listas de clientes y habitaciones con datos de muestra.
         listaDeClientes = new ArrayList<>();
         listaDeHabitaciones = new ArrayList<>();
-        
+        // Sección para añadir habitaciones de ejemplo a la lista.
         listaDeHabitaciones.add(new Habitacion("Simple",2,15,1,50));
         listaDeHabitaciones.add(new Habitacion("Simple",2,17,1,50));
         listaDeHabitaciones.add(new Habitacion("Simple",2,18,1,50));
@@ -66,7 +68,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
    
 
     }
-
+// Método para actualizar la fecha actual en la interfaz gráfica, formateándola según la localidad española.
 private void fecha(){
     LocalDate now=LocalDate.now();
     Locale spanishLocale=new Locale("es","ES");
@@ -82,6 +84,7 @@ private void fecha(){
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Método generado automáticamente por el editor de formularios de Swing para inicializar los componentes de la interfaz gráfica.
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
@@ -316,7 +319,7 @@ private void fecha(){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // Método que se ejecuta al hacer clic en el botón de servicios. Inicializa y agrega el panel de servicios a la interfaz gráfica.
     private void btnServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiciosActionPerformed
         // TODO add your handling code here:
         //pnlServicios = new PnlServicios();
@@ -324,13 +327,13 @@ private void fecha(){
        pnlServicios2=new PnlServicios2();
        agregarPanel(pnlServicios2);
     }//GEN-LAST:event_btnServiciosActionPerformed
-
+    // Método que se ejecuta al hacer clic en el botón de registro de clientes. Inicializa y agrega el panel de clientes a la interfaz gráfica.
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
         // TODO add your handling code here:
         pnlCliente=new PnlCliente();
         agregarPanel(pnlCliente);
     }//GEN-LAST:event_btnClientesActionPerformed
-
+    // Método que se ejecuta al hacer clic en el botón de reserva. Inicializa y agrega el panel de factura a la interfaz gráfica.
     private void btnReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaActionPerformed
         // TODO add your handling code here:
          /*pnlHabitacion21= new PnlHabitacion21();
@@ -338,13 +341,14 @@ private void fecha(){
         pnlFactura_1= new PnlFactura_1();
         agregarPanel(pnlFactura_1);
     }//GEN-LAST:event_btnReservaActionPerformed
-
+    // Método que se ejecuta al hacer clic en el botón de página principal. Re-inicializa y agrega el panel principal a la interfaz gráfica.
     private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
         // TODO add your handling code here:
          pnlPrincipal=new PnlPrincipal();
         agregarPanel(pnlPrincipal);
     }//GEN-LAST:event_btnPrincipalActionPerformed
-private void agregarPanel(JPanel pnl){
+    // Método para agregar un panel especificado a la interfaz gráfica, configurando su tamaño y ubicación dentro del panel de fondo.
+    private void agregarPanel(JPanel pnl){
      pnl.setSize(1000,620);
         pnl.setLocation(0,0);
         pnlFondo.removeAll();
